@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZMSG</ARBGB>
+    <MASTERLANG>E</MASTERLANG>
+    <STEXT>RAP Message class</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Invalid Region Selected!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>Invalid Change Type Selectec!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>Invalid Release Type Selected!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>Invalid Project Selected!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>Release Date Cannot Be In Past!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG</ARBGB>
+     <MSGNR>006</MSGNR>
+     <TEXT>Region Required!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG</ARBGB>
+     <MSGNR>007</MSGNR>
+     <TEXT>Change type required!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG</ARBGB>
+     <MSGNR>008</MSGNR>
+     <TEXT>Release type required!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG</ARBGB>
+     <MSGNR>009</MSGNR>
+     <TEXT>Project required!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG</ARBGB>
+     <MSGNR>010</MSGNR>
+     <TEXT>Release date required!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG</ARBGB>
+     <MSGNR>011</MSGNR>
+     <TEXT>Action irreversible!. You cannot change JIRA after marking it as deployed</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG</ARBGB>
+     <MSGNR>012</MSGNR>
+     <TEXT>Release date cannot be in past</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG</ARBGB>
+     <MSGNR>013</MSGNR>
+     <TEXT>FF ID Required!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMSG</ARBGB>
+     <MSGNR>014</MSGNR>
+     <TEXT>Invalid format! Defect ID. Must follow &quot;Alphabet - Number&quot;</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>

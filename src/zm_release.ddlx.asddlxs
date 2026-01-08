@@ -1,0 +1,121 @@
+@Metadata.layer: #CORE
+
+@Search.searchable: true
+
+annotate view ZC_RELEASE with
+
+{
+  @EndUserText.label: 'ID'
+  @Search.defaultSearchElement: true
+  @Search.fuzzinessThreshold: 0.7
+  @UI.facet: [ //{ id: 'HeaderInfo', label: 'Header Info', type: #COLLECTION, targetQualifier: 'Header' },
+               { id: 'GeneralInfo',
+                 label: 'General',
+                 targetQualifier: 'General',
+                 type: #IDENTIFICATION_REFERENCE,
+                 purpose: #STANDARD,
+                 position: 10
+                 //parentId: 'HeaderInfo'
+                  },
+               { id: 'Attach',
+                 label: 'Attachments',
+                 targetQualifier: 'Attach',
+                 type: #LINEITEM_REFERENCE,
+                 targetElement: '_Attach',
+                 //parentId: 'HeaderInfo',
+                 position: 20 },
+                 
+                 { 
+                   id: 'ChangeLog',
+                   label: 'Changes',
+                   targetQualifier: 'ChangeLog',
+                   type: #LINEITEM_REFERENCE,
+                   targetElement: '_ChangeLog',
+                   position: 30
+                 } ]
+  @UI.identification: [ { position: 10, qualifier: 'General' } ]
+  @UI.lineItem: [ { position: 10, label: 'Mark As Deployed',type: #FOR_ACTION , dataAction: 'MrkDep' } ]
+  @UI.selectionField: [ { position: 10 } ]
+  Id;
+
+  @Search.defaultSearchElement: true
+  @Search.fuzzinessThreshold: 0.7
+  @UI.identification: [ { position: 20, qualifier: 'General' } ]
+  @UI.lineItem: [ { position: 20, label: 'Defect' } ]
+  @UI.selectionField: [ { position: 20 } ]
+  Defect;
+
+  @EndUserText.label: 'Description'
+  @Search.defaultSearchElement: true
+  @Search.fuzzinessThreshold: 0.7
+  @UI.identification: [ { position: 30, qualifier: 'General' } ]
+  @UI.lineItem: [ { position: 30, label: 'Description' } ]
+  Description;
+
+  @Consumption.valueHelpDefinition: [ { entity: { element: 'Staging', name: 'ZI_REGION_FV' } } ]
+  @Consumption.filter.selectionType: #SINGLE
+  @EndUserText.label: 'Region'
+  @UI.identification: [ { position: 40, qualifier: 'General' } ]
+  @UI.lineItem: [ { position: 40, label: 'Region' } ]
+  @UI.selectionField: [ { position: 30 } ]
+  @UI.textArrangement: #TEXT_ONLY
+  Region;
+
+  @Consumption.valueHelpDefinition: [ { entity: { element: 'ProjType', name: 'ZI_PROJECT_FV' } } ]
+  @UI.textArrangement: #TEXT_ONLY
+  @Consumption.filter.selectionType: #SINGLE
+  @UI.identification: [ { position: 50, qualifier: 'General' } ]
+  @UI.lineItem: [ { position: 50, label: 'Project Type' } ]
+  @UI.selectionField: [ { position: 40 } ]
+  Projecttype;
+
+  @Consumption.valueHelpDefinition: [ { entity: { element: 'RelType', name: 'ZI_RELTYP_FV' } } ]
+  @Consumption.filter.selectionType: #SINGLE
+  @UI.textArrangement: #TEXT_ONLY
+  @UI.identification: [ { position: 60, qualifier: 'General' } ]
+  @UI.lineItem: [ { position: 60, label: 'Release Type' } ]
+  @UI.selectionField: [ { position: 50 } ]
+  ReleaseType;
+
+  @Consumption.valueHelpDefinition: [ { entity: { element: 'ChangeTyp', name: 'ZI_CHANGE_FV' } } ]
+    @Consumption.filter.selectionType: #SINGLE
+  @UI.textArrangement: #TEXT_ONLY
+  @UI.identification: [ { position: 70, qualifier: 'General' } ]
+  @UI.lineItem: [ { position: 70, label: 'Change Type' } ]
+  @UI.selectionField: [ { position: 60 } ]
+  ChangeType;
+
+  @EndUserText.label: 'FF ID'
+  @UI.identification: [ { position: 80, qualifier: 'General' } ]
+  @UI.lineItem: [ { position: 100, label: 'FF ID' } ]
+  FFID;
+
+  @EndUserText.label: 'JIRA Link'
+  @UI.identification: [ { position: 100, qualifier: 'General' } ]
+  JiraUrl;
+
+  @EndUserText.label: 'Release Date'
+  @UI.identification: [ { position: 90, qualifier: 'General' } ]
+  @UI.lineItem: [ { position: 100, label: 'Release Date' } ]
+  @UI.selectionField: [ { position: 70 } ]
+  @Consumption.filter.selectionType: #SINGLE
+  ReleaseDate;
+
+  @EndUserText.label: 'Created On'
+  @UI.identification: [ { position: 110, qualifier: 'General' } ]
+  @UI.selectionField: [ { position: 80 } ]
+  @Consumption.filter.selectionType: #SINGLE
+  CreatedOn;
+  
+  @EndUserText.label: 'Created By'
+  @UI.identification: [{ position: 120, qualifier: 'General' }]
+  @UI.selectionField: [ { position: 90 } ]
+  CreatedBy;
+  
+  @EndUserText.label: 'IsDeployed'
+  @UI.identification: [{ position: 130, qualifier: 'General' }]
+  @UI.lineItem: [{ position: 130, label: 'IsDeployed',emphasized: true }]
+  @UI.selectionField: [ { position: 100 } ]
+  IsDeployed;
+  
+}

@@ -1,0 +1,94 @@
+managed implementation in class zbp_i_release unique;
+strict ( 2 );
+with draft;
+define behavior for ZI_RELEASE //alias <alias_name>
+persistent table zrelease_items
+draft table ZDRAFT_RELEASE
+lock master
+total etag CreatedOn
+authorization master ( instance,global )
+late numbering
+etag master CreatedOn
+with additional save
+{
+  create ( authorization : global );
+  update(features : instance);
+  delete(features : instance);
+  field ( readonly ) Id;
+  field ( readonly : update) Defect;
+  field ( mandatory : create ) Defect; // ChangeType,Description,Region,Projecttype,ffid,ReleaseDate,ReleaseType;
+  field ( features : instance )  ChangeType,Description,Region,Projecttype,ffid,ReleaseDate,ReleaseType,IsDeployed;
+  association _Attach {create( features : instance );with draft;}
+
+  action ( features : instance ) MrkDep; //result [1] $self;
+
+  draft action Edit;
+  draft action Resume;
+  draft action Activate optimized;
+  draft action Discard;
+  draft determine action Prepare
+  {
+    validation ValidateDD;
+  }
+
+  validation ValidateDD on save {create;update;}
+
+ side effects
+ {
+   field Defect affects field JiraUrl;
+ }
+
+ determination BuildURL on modify { field Defect; }
+
+  mapping for zrelease_items {
+
+   Id = id;
+   Defect = defect;
+   ffid = ffidused;
+   ChangeType = changetype;
+   Description = description;
+   JiraUrl = jiraurl;
+   Projecttype = projecttype;
+   Region = region;
+   ReleaseDate = releasedate;
+   ReleaseType = releasetype;
+   CreatedOn = createdon;
+   CreatedBy = createdby;
+   IsDeployed = isdeployed;
+}
+
+
+}
+
+define behavior for ZI_ATTACH
+implementation in class zimpl_attach unique
+persistent table zrelattach
+draft table zdraft_attach
+lock dependent by _RELEASE
+authorization dependent by _RELEASE
+late numbering
+etag dependent by _RELEASE
+{
+    update( features : instance );
+    delete( features : instance );
+   field ( readonly:update ) Zdefect,Zrelid,Zid,Crtby,Crton;
+    association _RELEASE {with draft;}
+
+     side effects {
+        field Attachment affects field Crtby;
+     }
+
+     determination AddCreatedBy on modify { field Attachment; }
+
+        mapping for zrelattach{
+    Zrelid = zrelid;
+    Zdefect = zdefect;
+    Zid = zid;
+    Filename = filename;
+    Attachment = attachment;
+    Crtby = crtby;
+    Crton = crton;
+    Mimetype = mimetype;
+
+    }
+}

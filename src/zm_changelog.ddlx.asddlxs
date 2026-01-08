@@ -1,0 +1,22 @@
+@Metadata.layer: #CORE
+annotate entity ZC_CHANGELOG
+    with 
+{
+    @UI.hidden: true
+    ChangeId;
+    @UI.hidden: true
+    Id;
+    @UI.lineItem: [{ position: 10,label: 'Operation',qualifier: 'ChangeLog' }]
+    ChangingOperation;
+    @UI.lineItem: [{ position: 20,label: 'Field' , qualifier: 'ChangeLog'}]
+    ChangedFieldName;
+    @UI.lineItem: [{ position: 30,label: 'Old Value' , qualifier: 'ChangeLog'}]
+    ChangedFrom;
+    @UI.lineItem: [{ position: 40,label: 'New Value' ,qualifier: 'ChangeLog'}]
+    ChangedValue;
+    @UI.hidden: true
+    CreatedAt;
+    @UI.lineItem: [{ position: 60,label: 'Change By' ,qualifier: 'ChangeLog'}]
+    ChangedBy;
+    
+}

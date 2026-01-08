@@ -1,0 +1,31 @@
+projection implementation in class zbp_c_release unique;// implementation in class zbp_c_release unique;
+strict ( 2 );
+use side effects;
+use draft;
+
+define behavior for ZC_RELEASE //alias <alias_name>
+{
+  use create( precheck );
+  use update( precheck );
+  use delete;
+
+  use action Edit;
+  use action Resume;
+  use action Activate;
+  use action Discard;
+  use action Prepare;
+  use action MrkDep;
+
+  field ( readonly ) JiraUrl,CreatedOn,CreatedBy;
+
+  use association _Attach { create; with draft;}
+
+}
+
+define behavior for ZC_ATTACH{ // alias alias {
+	
+	use delete;
+	use update;
+	
+	use association _RELEASE { with draft; }
+}

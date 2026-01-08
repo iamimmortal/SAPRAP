@@ -1,0 +1,33 @@
+@Metadata.layer: #CORE
+annotate entity ZC_ATTACH
+    with 
+{
+
+  
+    @UI.hidden: true
+    Zrelid;
+    @UI.hidden: true
+    Zdefect;
+    @UI.hidden: true
+    Zid;
+    @UI.textArrangement: #TEXT_FIRST
+    @UI.lineItem: [{ position: 10,label: 'Attachment' ,qualifier: 'Attach'}]
+    @UI.identification: [{position: 10}]
+    Attachment;
+    @UI.hidden: true
+    Mimetype;
+     @UI.textArrangement: #TEXT_FIRST
+    @UI.lineItem: [{ position: 20,label: 'Description' , qualifier: 'Attach'}]
+    @UI.identification: [{position: 20}]
+    Filename;
+    @UI.lineItem: [{ position: 30,label: 'CreatedBy' ,qualifier: 'Attach'}]
+    @UI.identification: [{position: 30}]     
+    Crtby;
+    @UI.lineItem: [{ position: 40,label: 'CreatedOn' ,qualifier: 'Attach'}]
+    @UI.identification: [{position: 40}]  
+    Crton;
+    /* Associations */
+    
+    //_RELEASE;
+    
+}
