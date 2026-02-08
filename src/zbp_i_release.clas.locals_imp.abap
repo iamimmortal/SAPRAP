@@ -16,6 +16,7 @@ CLASS lsc_zi_release IMPLEMENTATION.
       ENDIF.
 
       TRY.
+          "NEW ztest_cass( )->zoo_execute( ).
           cl_numberrange_runtime=>number_get( EXPORTING object      = 'ZRELEASEID'
                                                         nr_range_nr = '01'
                                               IMPORTING number      = DATA(lv_id) ).

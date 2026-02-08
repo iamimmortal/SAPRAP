@@ -13,6 +13,8 @@ CLASS lhc_zc_release IMPLEMENTATION.
 
   METHOD precheck_create.
 
+
+
     LOOP AT entities INTO DATA(ls_entity).
       "check defect format
       FIND PCRE '^[A-Z]+-\d' IN ls_entity-Defect MATCH COUNT DATA(lv_count).
