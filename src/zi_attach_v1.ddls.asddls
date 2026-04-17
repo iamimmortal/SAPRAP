@@ -9,11 +9,10 @@
     dataClass: #MIXED
 }
 
-define view entity ZI_ATTACH as select from zrelattach 
-//association to parent ZI_RELEASE as _RELEASE on $projection.Zrelid = _RELEASE.Id and
-  //                                              $projection.Zdefect = _RELEASE.Defect
+define view entity ZI_ATTACH_V1 as select from zrelattach
+association to parent ZI_RELEASE as _RELEASE on $projection.Zrelid = _RELEASE.Id and
+                                                $projection.Zdefect = _RELEASE.Defect
 {
-    
  key zrelattach.zrelid as Zrelid,
  key zrelattach.zdefect as Zdefect,
  key zrelattach.zid as Zid,
@@ -21,7 +20,7 @@ define view entity ZI_ATTACH as select from zrelattach
  zrelattach.mimetype as Mimetype,
  zrelattach.filename as Filename,
  zrelattach.crtby as Crtby,
- zrelattach.crton as Crton
- //_RELEASE
+ zrelattach.crton as Crton,
+ _RELEASE
     
 }

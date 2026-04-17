@@ -31,7 +31,7 @@ CLASS lsc_zi_release IMPLEMENTATION.
 
     ENDLOOP.
 
-    LOOP AT mapped-zi_attach REFERENCE INTO DATA(map_attach).
+    LOOP AT mapped-zi_attach_v1 REFERENCE INTO DATA(map_attach).
       IF map_attach->Zid IS NOT INITIAL.
         CONTINUE.
       ENDIF.

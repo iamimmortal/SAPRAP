@@ -3,9 +3,9 @@ CLASS lhc_zi_attach DEFINITION INHERITING FROM cl_abap_behavior_handler.
   PRIVATE SECTION.
 
     METHODS get_instance_features FOR INSTANCE FEATURES
-      importing REQUEST requested_features FOR zi_attach RESULT result.
+      importing REQUEST requested_features FOR zi_attach_v1 RESULT result.
     METHODS addcreatedby FOR DETERMINE ON MODIFY
-      IMPORTING keys FOR zi_attach~addcreatedby.
+      IMPORTING keys FOR zi_attach_v1~addcreatedby.
 
 
 ENDCLASS.
@@ -34,7 +34,7 @@ CLASS lhc_zi_attach IMPLEMENTATION.
   METHOD AddCreatedBy.
 
     READ ENTITIES OF zi_release IN LOCAL MODE
-    ENTITY zi_attach ALL FIELDS WITH CORRESPONDING  #( keys )
+    ENTITY zi_attach_v1 ALL FIELDS WITH CORRESPONDING  #( keys )
     RESULT DATA(lt_results).
 
     LOOP AT lt_results ASSIGNING FIELD-SYMBOL(<ls_result>).
@@ -51,7 +51,7 @@ CLASS lhc_zi_attach IMPLEMENTATION.
     ENDLOOP.
 
         MODIFY ENTITIES OF zi_release IN LOCAL MODE
-           ENTITY zi_attach
+           ENTITY zi_attach_v1
            UPDATE FIELDS ( Crtby Crton )
            WITH CORRESPONDING #( lt_results ).
 

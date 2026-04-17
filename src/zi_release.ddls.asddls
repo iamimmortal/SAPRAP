@@ -7,7 +7,7 @@
 
 define root view entity ZI_RELEASE
   as select from zrelease_items
-  composition [0..*] of ZI_ATTACH     as _Attach
+  composition [0..*] of ZI_ATTACH_V1 as _Attach
   association [1] to ZI_PROJECT_FV as _ProjectText on  $projection.Projecttype = _ProjectText.ProjType
   association [1] to ZI_REGION_FV  as _RegionText  on  $projection.Region = _RegionText.Staging
   association [1] to ZI_RELTYP_FV  as _ReleaseText on  $projection.ReleaseType = _ReleaseText.RelType

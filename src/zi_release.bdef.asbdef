@@ -60,7 +60,7 @@ with additional save
 
 }
 
-define behavior for ZI_ATTACH
+define behavior for ZI_ATTACH_V1
 implementation in class zimpl_attach unique
 persistent table zrelattach
 draft table zdraft_attach

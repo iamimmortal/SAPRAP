@@ -2,7 +2,7 @@
 @EndUserText.label: 'Consumption View For Attachment'
 @Metadata.ignorePropagatedAnnotations: true
 @Metadata.allowExtensions: true
-define view entity ZC_ATTACH  as projection on ZI_ATTACH
+define view entity ZC_ATTACH  as projection on ZI_ATTACH_V1
 {
 key Zrelid,
 key Zdefect,

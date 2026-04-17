@@ -3,7 +3,7 @@
 {
 "FROM":
 [
-"ZI_ATTACH"
+"ZI_ATTACH_V1"
 ],
 "ASSOCIATED":
 [
@@ -12,7 +12,7 @@
 ],
 "BASE":
 [
-"ZI_ATTACH"
+"ZI_ATTACH_V1"
 ],
 "ANNO_REF":
 [],

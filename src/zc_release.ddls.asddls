@@ -13,6 +13,8 @@ define root view entity ZC_RELEASE provider contract transactional_query as proj
     key Defect,
     Description,
     @ObjectModel.text.element: [ 'ProjectText' ]
+    @Search.defaultSearchElement: true
+    
     Projecttype,
     _ProjectText.Description as ProjectText,
     @ObjectModel.text.element: [ 'RegionText' ]
