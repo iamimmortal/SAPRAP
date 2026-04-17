@@ -1,0 +1,8 @@
+@EndUserText.label: 'Service definition for release item'
+define service ZSD_DEPLOY {
+  expose ZI_RELEASE;
+  expose ZC_RELEASE;
+  expose ZI_ATTACH_V1;
+  expose ZC_ATTACH;
+  expose ZC_CHANGELOG;
+}
