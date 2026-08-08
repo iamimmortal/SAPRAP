@@ -7,6 +7,49 @@ CLASS lsc_zi_release DEFINITION INHERITING FROM cl_abap_behavior_saver.
 
 ENDCLASS.
 
+class ztest_clas deFINITION.
+    pubLIC SECTION.
+    methods zoo_execute.
+endCLASS.
+
+CLASS ztest_clas IMPLEMENTATION.
+ metHOD zoo_execute.
+DATA: lv_object   TYPE cl_numberrange_objects=>nr_attributes-object,
+      lt_interval TYPE cl_numberrange_intervals=>nr_interval,
+      ls_interval TYPE cl_numberrange_intervals=>nr_nriv_line,
+      lv_error    TYPE REF TO cx_number_ranges,
+      lv_msg      TYPE string.
+
+" 1. Define the interval details
+ls_interval-nrrangenr  = '01'.            " Interval ID
+ls_interval-fromnumber = '1000000000'.    " Start number
+ls_interval-tonumber   = '2999999999'.    " End number
+APPEND ls_interval TO lt_interval.
+
+TRY.
+    cl_numberrange_intervals=>create(
+      EXPORTING
+        interval  = lt_interval
+        object    = 'ZRELEASEID'           " Your SNRO Number Range Object name
+      IMPORTING
+        error     = DATA(ls_error)        " Captures errors if structural creation fails
+        error_inf = DATA(ls_error_inf)
+    ).
+
+
+  CATCH cx_nr_object_not_found INTO lv_error.
+    lv_msg = lv_error->get_text( ).
+    " Action: Verify if 'ZMYOBJECT' exists in ADT / configuration
+
+  CATCH cx_number_ranges INTO lv_error.
+    lv_msg = lv_error->get_text( ).
+    " Action: Handle generic number range overlaps or subobject faults
+ENDTRY.
+enDMETHOD.
+ENDCLASS.
+
+
+
 CLASS lsc_zi_release IMPLEMENTATION.
   METHOD adjust_numbers.
     LOOP AT mapped-zi_release REFERENCE INTO DATA(map).
@@ -16,7 +59,7 @@ CLASS lsc_zi_release IMPLEMENTATION.
       ENDIF.
 
       TRY.
-          "NEW ztest_cass( )->zoo_execute( ).
+          "NEW ztest_clas( )->zoo_execute( ).
           cl_numberrange_runtime=>number_get( EXPORTING object      = 'ZRELEASEID'
                                                         nr_range_nr = '01'
                                               IMPORTING number      = DATA(lv_id) ).
